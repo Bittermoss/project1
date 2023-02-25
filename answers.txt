@@ -31,7 +31,7 @@ int main() {
 }
 
 
-Step 2. ----------------- started at 2/10 --  -----------------------
+Step 2. ----------------- started at 2/10 --completed -----------------------
 
 header file: 
 
@@ -65,3 +65,109 @@ int main() {
      cout<<"Assert tests completed"<<endl;
 
     return 0;
+} 
+
+Step 3. --------- <started and completed feb. 17> -------------------------------
+
+header: 
+
+bool isPrime(unsigned int value);
+
+untils.cpp: 
+
+bool isPrime(unsigned int value){
+    if (value%2 == 0){
+        return false; 
+    }else(){
+        return true; 
+    }
+}
+
+main.cpp: 
+
+int main() {
+
+    assert(isPrime(4) == false);
+    assert(isPrime(1) == true );
+    assert(isPrime(3) == true );
+
+     cout<<"Assert tests completed"<<endl;
+
+    return 0;
+}
+
+Step 4. --------- <started: Feb 24 and 23> -------------------------------
+
+main.cpp: 
+
+#include <iostream>
+#include <cassert>
+#include "utils.h"
+using namespace std;
+
+
+int main() {
+
+    unsigned int listSize = 100;
+    unsigned int list [listSize]; 
+
+    for(int n = 0; n < listSize; n++){
+        list[n] = 0; 
+    }
+
+   findNPrimes(list, listSize);
+
+    for(int n = 0; n < listSize; n++){
+          cout << list[n] << endl; 
+    }
+
+    return 0;
+}
+
+utils.h: 
+
+using namespace std;
+
+bool isPrime(unsigned int value);
+void findNPrimes(unsigned int primes[], unsigned int size);
+
+utils.cpp: 
+
+#include <iostream>
+#include <cassert>
+#include "utils.h"
+using namespace std;
+
+bool isPrime(unsigned int value){
+int counter = 0; 
+  for(int n = 1; n < value + 1; n++){
+   if (n != 0){
+    if(value%n == 0){
+        counter++;
+    }
+   }
+  }
+
+
+  if (counter > 2){
+    return false; 
+  }else{
+    return true; 
+  }
+}
+
+void findNPrimes(unsigned int primes[], unsigned int size){
+    int value = 2; 
+    int i = 0;
+    while(primes[size-1] == 0){
+        if (isPrime(value) == true){
+            primes[i] = value; 
+            i++;
+        }
+        value++;
+    }
+    
+}
+
+------------------------- done at <Feb 24> --------------------------
+
